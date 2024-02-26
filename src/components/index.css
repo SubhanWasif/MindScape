@@ -1,0 +1,34 @@
+@font-face {
+  font-family: GROUPE;
+
+  src: local("GROUPE MEDIUM"),
+    url("../fonts/GroupeMedium-8MXgn.woff") format("woff");
+}
+
+.GROUPE {
+  font-family: GROUPE;
+}
+
+@font-face {
+  font-family: COCO;
+  src: url("../fonts/CocoGothic-Bold.woff") format("woff");
+}
+
+.COCO {
+  font-family: COCO;
+}
+
+body {
+  overflow: scroll;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+
+#fname::placeholder {
+  /* Placeholder text color */
+  font-style: italic;
+  font-weight: bold; /* This will not work as expected for placeholder */
+  color: white;
+  font-size: 20px;
+}

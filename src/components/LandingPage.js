@@ -1,6 +1,6 @@
 import React from "react";
-import WebFont from "webfontloader";
-import "./index.css";
+
+import "./LandingPage.css";
 // Importing assets
 import backgroundImage from "../assets/background.png";
 import copyrights from "../assets/Copyright.png";
@@ -11,6 +11,12 @@ export default function HomePage() {
 
   const navigateToAbout = () => {
     navigate("/about"); // Use the push method to navigate to the desired path
+  };
+  const navigateToLogin = () => {
+    navigate("/login"); // Use the push method to navigate to the desired path
+  };
+  const navigateToSignup = () => {
+    navigate("/signup"); // Use the push method to navigate to the desired path
   };
   return (
     <div
@@ -127,6 +133,7 @@ export default function HomePage() {
         </div>
         <div>
           <button
+            onClick={navigateToLogin}
             style={{
               padding: "1rem 4rem",
               backgroundColor: "black",
@@ -141,6 +148,7 @@ export default function HomePage() {
             LOG IN
           </button>
           <button
+            onClick={navigateToSignup}
             style={{
               padding: "1rem 4rem",
               backgroundColor: "black",

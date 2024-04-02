@@ -1,21 +1,19 @@
 import React from "react";
-import subhan from "../assets/subhaaan 2.png";
-import hamza from "../assets/image 2.png";
-import maheen from "../assets/maheeen 2.png";
+import subhan from "../assets/subhaaan 1.png";
+import hamza from "../assets/Frame 3.png";
+import maheen from "../assets/maheeen 1.png";
 
 export default function AboutPage() {
   return (
     <div
       style={{
         margin: "0",
-
         height: "100vh",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "column",
         backgroundColor: "black",
-
         gap: "80px",
       }}
     >
@@ -53,106 +51,39 @@ export default function AboutPage() {
           padding: "50px 100px 100px 100px",
           color: "white",
           boxShadow: "20px 20px 100px #12E1B9",
+
+          width: "70%",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          gap: "3rem",
           flexDirection: "column",
-          position: "relative",
+          gap: "50px",
         }}
       >
         <div
           style={{
-            fontFamily: "GROUPE",
-            fontSize: "3rem",
-            padding: "20px",
-            color: "white",
+            fontSize: "40px",
           }}
         >
-          meet the team
+          About Us
         </div>
-        <div
-          className="images"
-          style={{
-            display: "flex",
-
-            justifyContent: "center",
-            gap: "10rem",
-            alignItems: "center",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              flexDirection: "column",
-              alignItems: "center",
-              gap: "20px",
-            }}
-          >
-            <img
-              src={hamza}
-              style={{
-                height: "250px",
-              }}
-            />
-            <div
-              style={{
-                fontSize: "30px",
-                fontFamily: "Montserrat",
-              }}
-            >
-              Hamza Ahmand
-            </div>
-          </div>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              flexDirection: "column",
-              alignItems: "center",
-              gap: "20px",
-            }}
-          >
-            <img
-              src={maheen}
-              style={{
-                height: "250px",
-              }}
-            />
-            <div
-              style={{
-                fontSize: "30px",
-                fontFamily: "Montserrat",
-              }}
-            >
-              Maheen Khurram
-            </div>
-          </div>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              flexDirection: "column",
-              alignItems: "center",
-              gap: "20px",
-            }}
-          >
-            <img
-              src={subhan}
-              style={{
-                height: "250px",
-              }}
-            />
-            <div
-              style={{
-                fontSize: "30px",
-                fontFamily: "Montserrat",
-              }}
-            >
-              Subhan Wasif
-            </div>
-          </div>
+        <div style={{}}>
+          At Mindscape Mapper, we pioneer the intersection of neuroscience and
+          artificial intelligence to revolutionize thought visualization.
+          Founded by a dedicated team of researchers from Forman Christian
+          College's Department of Computer Science including Hamza Ahmed, Maheen
+          Khurram, and Subhan Wasif, under the guidance of Dr. Haroon Shakeel
+          and Dr. Murtaza Taj, our project aims to develop a real-time
+          Brain-Computer Interface (BCI) using EEG signals. This innovative
+          technology is designed to convert thoughts into text and images,
+          facilitating groundbreaking applications in assistive technology for
+          individuals with disabilities, as well as advancing cognitive research
+          and medical diagnostics. Our work is rooted in extensive research,
+          leveraging advanced machine learning models and a unique
+          EEG-Text-Image pipeline to bring thought visualization closer to
+          reality. Join us in exploring the endless possibilities of connecting
+          the human brain with the digital world, fostering advancements that
+          once seemed beyond reach.
         </div>
       </div>
     </div>

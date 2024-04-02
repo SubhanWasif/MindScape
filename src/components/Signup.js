@@ -125,7 +125,7 @@ export default function Login() {
             </div>
 
             <button className="rounded-[50px] w-[30%] p-[20px] shadow-[10px_10px_20px_rgb(18,255,185,0.4)] mt-[20px] cursor-pointer">
-              Login
+              Sign Up
             </button>
           </div>
         </div>

@@ -1,4 +1,7 @@
 import React from "react";
+import subhan from "../assets/subhaaan 1.png";
+import hamza from "../assets/Frame 3.png";
+import maheen from "../assets/maheeen 1.png";
 
 import "./LandingPage.css";
 // Importing assets
@@ -24,10 +27,11 @@ export default function HomePage() {
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
-        height: "230vh",
+        height: "248vh",
       }}
     >
       <button
+        className=""
         style={{
           backgroundColor: "transparent",
           border: "none",
@@ -119,7 +123,7 @@ export default function HomePage() {
             >
               v
             </div>
-            isualizing{" "}
+            isualizing
             <div
               style={{
                 color: "#12E1B9",
@@ -181,43 +185,24 @@ export default function HomePage() {
       >
         <div
           style={{
-            fontSize: "4rem",
+            fontSize: "5rem",
             fontFamily: "GROUPE",
           }}
         >
-          our vision
+          meet the team
         </div>
-        <div
-          style={{
-            backgroundColor: "black",
-            padding: "60px 100px",
-            width: "60%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            flexDirection: "column",
-            gap: "30px",
-            borderRadius: "50px",
-          }}
-        >
-          <div
-            style={{
-              fontSize: "20px",
-            }}
-          >
-            Turning the Unseen into the Seen - One Thought at a Time.
+        <div className="flex gap-[100px]">
+          <div className="flex justify-center items-center flex-col gap-[40px]">
+            <img className="h-[350px] rounded-[30px]" src={subhan} />
+            <div className="text-[25px] font-bold ">Subhan Wasif</div>
           </div>
-          <div
-            style={{
-              lineHeight: "2rem",
-            }}
-          >
-            Mindscape Mapper envisions a future where the power of the human
-            brain is seamlessly integrated with digital innovation. Through our
-            pioneering Brain-Computer Interface technology, we aim to
-            revolutionize communication and cognitive research, empowering
-            individuals with disabilities and advancing human potential beyond
-            boundaries.
+          <div className="flex justify-center items-center flex-col gap-[40px]">
+            <img className="h-[350px] rounded-[30px]" src={maheen} />
+            <div className="text-[25px] font-bold ">Maheen Khurram</div>
+          </div>
+          <div className="flex justify-center items-center flex-col gap-[40px]">
+            <img className="h-[350px]" src={hamza} />
+            <div className="text-[25px] font-bold "> Hamza Ahmand</div>
           </div>
         </div>
       </div>
@@ -225,7 +210,7 @@ export default function HomePage() {
       <div
         className="Footer"
         style={{
-          marginTop: "25.5rem",
+          marginTop: "22.5rem",
           wight: "100%",
           height: "25vh",
           backgroundColor: "rgb(8, 91, 75,0.6)",

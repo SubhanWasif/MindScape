@@ -4,10 +4,13 @@ import { useNavigate } from "react-router-dom";
 import HomeImage from "../assets/Home.png";
 import AboutImage from "../assets/About.png";
 import Letter from "../assets/Letter.png";
-import User from "../assets/user-03.png";
+import Logout from "../assets/Logout.png";
+import EEG2Text from "../assets/TXT.png";
+import EEG2IMAGE from "../assets/Image File.png";
+
 import "./LandingPage.css";
 
-export default function Login() {
+export default function Dashboard() {
   let navigate = useNavigate();
 
   const navigateToAbout = () => {
@@ -23,7 +26,7 @@ export default function Login() {
           <div>MindSCAPE</div>
           <div>VISUALIZING THOUGHTS</div>
         </div>
-        <div className="flex justify-center flex-col gap-[12px] mt-[100px]">
+        <div className="flex justify-center flex-col gap-[12px] mt-[60px]">
           <div
             type="button"
             onClick={navigateToHome}
@@ -31,6 +34,22 @@ export default function Login() {
           >
             <img src={HomeImage} className="h-[30px]" />
             <div>Home</div>
+          </div>
+          <div
+            type="button"
+            onClick={navigateToHome}
+            className=" cursor-pointer bg-custom-600 rounded-[50px]  w-[100%] text-left pl-[20px] pt-[20px] pb-[20px] flex  gap-[10px] items-center"
+          >
+            <img src={EEG2Text} className="h-[30px]" />
+            <div>EEG2TEXT</div>
+          </div>
+          <div
+            type="button"
+            onClick={navigateToHome}
+            className=" cursor-pointer bg-custom-600 rounded-[50px]  w-[100%] text-left pl-[20px] pt-[20px] pb-[20px] flex  gap-[10px] items-center"
+          >
+            <img src={EEG2IMAGE} className="h-[30px]" />
+            <div>EEG2IMAGE</div>
           </div>
           <div
             type="button"
@@ -57,49 +76,53 @@ export default function Login() {
             }}
             className=" cursor-pointer bg-custom-600 rounded-[50px]  w-[100%] text-left pl-[20px] pt-[20px] pb-[20px] flex  gap-[10px] items-center"
           >
-            <img src={User} />
-            <div>Sign Up</div>
+            <img src={Logout} />
+            <div>Log Out</div>
           </div>
         </div>
       </div>
-      <div className="h-screen w-[85%] bg-black text-white  flex justify-center flex-col gap-[40px] p-4 items-center ">
+      <div className="h-screen w-[85%] bg-black text-white  flex justify-center flex-col gap-[50px] p-4 items-center ">
         <div className="GROUPE flex w-[100%] flex-col text-center">
           <div className="text-[60px]">mindSCAPE</div>
           <div className="text-[30px]">VISUALIZING THOUGHTS</div>
         </div>
-        <div className="pt-[100px] pb-[100px] pr-[150px] pl-[150px] rounded-2xl flex flex-col text-center justify-center content-center gap-[30px] shadow-[20px_20px_100px_rgb(18,255,185,0.5)] items-center">
-          <div className="title flex flex-col text-center gap-[4px]">
-            <div className="text-[30px]">Hello world!</div>
-            <div className="font-thin text-[13px] inset">
-              Login with your details
-            </div>
-          </div>
-          <div className="flex flex-col gap-[20px] w-[130%] items-center">
-            <input
-              className="p-[20px] rounded-[50px] bg-black text-white border-none w-[90%] text-[20px] placeholder-white"
-              placeholder="User name or Email"
-              style={{
-                boxShadow: "5px 10px 20px 5px rgb(18,255,185,0.5) inset",
-              }}
-            />
-            <input
-              type="password"
-              className="p-[20px] rounded-[50px] bg-black text-white border-none w-[90%] text-[20px] placeholder-white"
-              placeholder="Password"
-              style={{
-                boxShadow: "5px 10px 20px 5px rgb(18,255,185,0.5) inset",
-              }}
-            />
 
+        <div className="text-yellow-300 text-[40px] GROUPE">
+          WHAT WOULD YOU LIKE TO DO
+        </div>
+        <div
+          className="flex justify-center items-center gap-[30px]"
+          id="buttons"
+        >
+          <div className=" text-2xl w-[40%] flex flex-col justify-center items-center gap-[10px] shadow-[10px_10px_80px_rgb(18,255,185,0.5)] pt-[20px] pb-[40px] pr-[20px] pl-[20px] rounded-[40px]">
+            <div className="text-yellow-300 text-[30px] rounded-[40px] ">
+              EEGToText
+            </div>
             <div
               type="button"
-              className="self-end mr-[30px] cursor-pointer text-rose-400"
+              className="w-[70%] pt-[80px] pr-[20px] pl-[20px] pb-[80px]  rounded-[40px] text-center cursor-pointer"
+              style={{
+                boxShadow: "5px 10px 20px 5px rgb(18,255,185,0.5) inset",
+              }}
             >
-              Forgot Password
+              The System Processes the EEG data using LLMs to interpret thoughts
+              and display the translated text.
             </div>
-            <button className="rounded-[50px] w-[90%] p-[20px] shadow-[10px_10px_20px_rgb(18,255,185,0.4)] cursor-pointer">
-              Login
-            </button>
+          </div>
+          <div className=" text-2xl w-[40%] flex flex-col justify-center items-center gap-[10px] shadow-[20px_20px_100px_rgb(18,255,185,0.5)] pt-[20px] pb-[40px] pr-[15px] pl-[15px] rounded-[40px]">
+            <div className="text-yellow-300 text-[30px] rounded-[40px] ">
+              EEGToImage
+            </div>
+            <div
+              type="button"
+              className="w-[70%] pt-[80px] pr-[15px] pl-[20px] pb-[80px]  rounded-[40px] text-center cursor-pointer"
+              style={{
+                boxShadow: "5px 10px 20px 5px rgb(18,255,185,0.5) inset",
+              }}
+            >
+              The System Processes the EEG data using LLMs to generate a visual
+              representation of the interpreted thoughts.
+            </div>
           </div>
         </div>
       </div>

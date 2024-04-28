@@ -8,23 +8,48 @@ import Signup from "./components/Signup";
 import Dashboard from "./components/Dashboard";
 import Contact from "./components/Contact";
 import EEG2TEXT from "./components/EEG2Text";
+import EEG2IMAGE from "./components/EEG2Image";
+import { AuthProvider } from "./util/AuthContext";
+import ProtectedRoute from "./util/ProtectedRoute";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/EEG2TEXT" element={<EEG2TEXT />} />
-      </Routes>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/about" element={<AboutPage />} />
+
+          <Route path="/login" element={<Login />} />
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/EEGtoText"
+            element={
+              <ProtectedRoute>
+                <EEG2TEXT />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/EEGtoImage"
+            element={
+              <ProtectedRoute>
+                <EEG2IMAGE />
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
+      </Router>
+    </AuthProvider>
   );
 }
-
-
 
 export default App;

@@ -6,6 +6,7 @@ import maheen from "../assets/maheeen 1.png";
 export default function AboutPage() {
   return (
     <div
+      className="gradient"
       style={{
         margin: "0",
         height: "100vh",
@@ -47,10 +48,10 @@ export default function AboutPage() {
       <div
         style={{
           margin: "0",
-          backgroundColor: "black",
+          backgroundColor: "#0D161A",
           padding: "50px 100px 100px 100px",
           color: "white",
-          boxShadow: "20px 20px 100px #12E1B9",
+          boxShadow: "3px 5px 4px 0px white",
 
           width: "70%",
           display: "flex",

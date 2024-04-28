@@ -32,3 +32,10 @@ body::-webkit-scrollbar {
   color: white;
   font-size: 20px;
 }
+
+.gradient {
+  background: linear-gradient(140deg, rgb(0, 0, 0) 30%, rgb(75, 130, 153) 100%);
+}
+.gradient-box {
+  background: linear-gradient(140deg, rgb(0, 0, 0) 0%, rgb(75, 130, 153) 100%);
+}

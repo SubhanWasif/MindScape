@@ -46,7 +46,7 @@ function Generate() {
   }, []);
 }
 
-export default function EEG2TEXT() {
+export default function Dashboard() {
   let navigate = useNavigate();
 
   const navigateToAbout = () => {
@@ -74,7 +74,7 @@ export default function EEG2TEXT() {
           <div
             type="button"
             onClick={navigateToHome}
-            className=" cursor-pointer bg-[#0D161A] border-[1px]  rounded-[50px]  w-[100%] text-left pl-[20px] pt-[20px] pb-[20px] flex  gap-[10px] items-center"
+            className=" cursor-pointer bg-[#4B8299]   rounded-[50px]  w-[100%] text-left pl-[20px] pt-[20px] pb-[20px] flex  gap-[10px] items-center"
           >
             <img src={EEG2Text} className="h-[30px]" />
             <div>EEG2TEXT</div>
@@ -82,7 +82,7 @@ export default function EEG2TEXT() {
           <div
             type="button"
             onClick={navigateToHome}
-            className=" cursor-pointer bg-[#4B8299] rounded-[50px]  w-[100%] text-left pl-[20px] pt-[20px] pb-[20px] flex  gap-[10px] items-center"
+            className=" cursor-pointer bg-[#0D161A] border-[1px] rounded-[50px]  w-[100%] text-left pl-[20px] pt-[20px] pb-[20px] flex  gap-[10px] items-center"
           >
             <img src={EEG2IMAGE} className="h-[30px]" />
             <div>EEG2IMAGE</div>

@@ -1,7 +1,4 @@
 import React from "react";
-import subhan from "../assets/subhaaan 1.png";
-import hamza from "../assets/Frame 3.png";
-import maheen from "../assets/maheeen 1.png";
 
 export default function AboutPage() {
   return (

@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { ClipLoader } from "react-spinners";
+import React, { useEffect } from "react";
 
 import { useNavigate } from "react-router-dom";
 import HomeImage from "../assets/Home.png";
@@ -8,17 +7,14 @@ import Letter from "../assets/Letter.png";
 import Logout from "../assets/Logout.png";
 import EEG2Text from "../assets/TXT.png";
 import EEG2IMAGE from "../assets/Image File.png";
-import bg from "../assets/bg2.png";
 
 import "./LandingPage.css";
 function Generate() {
   console.log("clicked");
-  const [loading, setLoading] = useState(false);
-  const [data, setData] = useState(null);
+
   // Define the URL of the API you want to call
 
   useEffect(() => {
-    setLoading(true);
     // Use the fetch API to make a GET request to the URL
     fetch("http://localhost:5000/predict")
       .then((response) => {
@@ -68,7 +64,11 @@ export default function Dashboard() {
             onClick={navigateToHome}
             className=" cursor-pointer bg-[#4B8299] rounded-[50px]  w-[100%] text-left pl-[20px] pt-[20px] pb-[20px] flex  gap-[10px] items-center"
           >
-            <img src={HomeImage} className="h-[30px]" />
+            <img
+              alt="i will update this later"
+              src={HomeImage}
+              className="h-[30px]"
+            />
             <div>Home</div>
           </div>
           <div
@@ -76,7 +76,11 @@ export default function Dashboard() {
             onClick={navigateToHome}
             className=" cursor-pointer bg-[#4B8299]   rounded-[50px]  w-[100%] text-left pl-[20px] pt-[20px] pb-[20px] flex  gap-[10px] items-center"
           >
-            <img src={EEG2Text} className="h-[30px]" />
+            <img
+              alt="i will update this later"
+              src={EEG2Text}
+              className="h-[30px]"
+            />
             <div>EEG2TEXT</div>
           </div>
           <div
@@ -84,7 +88,11 @@ export default function Dashboard() {
             onClick={navigateToHome}
             className=" cursor-pointer bg-[#0D161A] border-[1px] rounded-[50px]  w-[100%] text-left pl-[20px] pt-[20px] pb-[20px] flex  gap-[10px] items-center"
           >
-            <img src={EEG2IMAGE} className="h-[30px]" />
+            <img
+              alt="i will update this later"
+              src={EEG2IMAGE}
+              className="h-[30px]"
+            />
             <div>EEG2IMAGE</div>
           </div>
           <div
@@ -92,7 +100,7 @@ export default function Dashboard() {
             onClick={navigateToAbout}
             className="  cursor-pointer bg-[#4B8299] rounded-[50px]  w-[100%] text-left pl-[20px] pt-[20px] pb-[20px] flex  gap-[10px] items-center"
           >
-            <img src={AboutImage} />
+            <img alt="i will update this later" src={AboutImage} />
             <div>About Us</div>
           </div>
           <div
@@ -102,7 +110,7 @@ export default function Dashboard() {
             }}
             className=" cursor-pointer bg-[#4B8299] rounded-[50px]  w-[100%] text-left pl-[20px] pt-[20px] pb-[20px] flex  gap-[10px] items-center"
           >
-            <img src={Letter} />
+            <img alt="i will update this later" src={Letter} />
             <div>Contact Us</div>
           </div>
           <div
@@ -112,7 +120,7 @@ export default function Dashboard() {
             }}
             className=" cursor-pointer bg-[#4B8299] rounded-[50px]  w-[100%] text-left pl-[20px] pt-[20px] pb-[20px] flex  gap-[10px] items-center"
           >
-            <img src={Logout} />
+            <img alt="i will update this later" src={Logout} />
             <div>Log Out</div>
           </div>
         </div>

@@ -54,7 +54,11 @@ export default function Login() {
             onClick={navigateToHome}
             className=" cursor-pointer bg-[#4B8299] rounded-[50px]  w-[100%] text-left pl-[20px] pt-[20px] pb-[20px] flex  gap-[10px] items-center"
           >
-            <img src={HomeImage} className="h-[30px]" />
+            <img
+              alt="i will update this later"
+              src={HomeImage}
+              className="h-[30px]"
+            />
             <div>Home</div>
           </div>
           <div
@@ -62,7 +66,7 @@ export default function Login() {
             onClick={navigateToAbout}
             className="  cursor-pointer bg-[#4B8299] rounded-[50px]  w-[100%] text-left pl-[20px] pt-[20px] pb-[20px] flex  gap-[10px] items-center"
           >
-            <img src={AboutImage} />
+            <img alt="i will update this later" src={AboutImage} />
             <div>About Us</div>
           </div>
           <div
@@ -72,7 +76,7 @@ export default function Login() {
             }}
             className=" cursor-pointer bg-[#4B8299] rounded-[50px]  w-[100%] text-left pl-[20px] pt-[20px] pb-[20px] flex  gap-[10px] items-center"
           >
-            <img src={Letter} />
+            <img alt="i will update this later" src={Letter} />
             <div>Contact Us</div>
           </div>
           <div
@@ -80,7 +84,7 @@ export default function Login() {
             onClick={navigateToSignup}
             className=" cursor-pointer bg-[#4B8299] rounded-[50px]  w-[100%] text-left pl-[20px] pt-[20px] pb-[20px] flex  gap-[10px] items-center"
           >
-            <img src={User} />
+            <img alt="i will update this later" src={User} />
             <div>Sign Up</div>
           </div>
         </div>

@@ -29,7 +29,7 @@ export default function Contact() {
             onClick={navigateToHome}
             className=" cursor-pointer bg-custom-600 rounded-[50px]  w-[100%] text-left pl-[20px] pt-[20px] pb-[20px] flex  gap-[10px] items-center"
           >
-            <img src={HomeImage} className="h-[30px]" />
+            <img src={HomeImage} alt="HomePage" className="h-[30px]" />
             <div>Home</div>
           </div>
           <div
@@ -37,7 +37,7 @@ export default function Contact() {
             onClick={navigateToAbout}
             className="  cursor-pointer bg-custom-600 rounded-[50px]  w-[100%] text-left pl-[20px] pt-[20px] pb-[20px] flex  gap-[10px] items-center"
           >
-            <img src={AboutImage} />
+            <img src={AboutImage} alt="About Page" />
             <div>About Us</div>
           </div>
           <div
@@ -47,7 +47,7 @@ export default function Contact() {
             }}
             className=" cursor-pointer bg-custom-600 rounded-[50px]  w-[100%] text-left pl-[20px] pt-[20px] pb-[20px] flex  gap-[10px] items-center"
           >
-            <img src={Letter} />
+            <img src={Letter} alt="letter" />
             <div>Contact Us</div>
           </div>
           <div
@@ -57,7 +57,7 @@ export default function Contact() {
             }}
             className=" cursor-pointer bg-custom-600 rounded-[50px]  w-[100%] text-left pl-[20px] pt-[20px] pb-[20px] flex  gap-[10px] items-center"
           >
-            <img src={User} />
+            <img src={User} alt="User" />
             <div>Sign Up</div>
           </div>
         </div>

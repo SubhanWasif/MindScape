@@ -6,7 +6,6 @@ import AboutPage from "./components/About";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Dashboard from "./components/Dashboard";
-import Contact from "./components/Contact";
 import EEG2TEXT from "./components/EEG2Text";
 import EEG2IMAGE from "./components/EEG2Image";
 import { AuthProvider } from "./util/AuthContext";

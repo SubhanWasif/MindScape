@@ -5,7 +5,6 @@ import HomeImage from "../assets/Home.png";
 import AboutImage from "../assets/About.png";
 import Letter from "../assets/Letter.png";
 import Logout from "../assets/Logout.png";
-import EEG2Text from "../assets/TXT.png";
 import EEG2IMAGE from "../assets/Image File.png";
 
 import "./LandingPage.css";
@@ -32,7 +31,7 @@ export default function Dashboard() {
             onClick={navigateToHome}
             className=" cursor-pointer bg-[#0D161A] rounded-[50px] border-2 border-white w-[100%] text-left pl-[20px] pt-[20px] pb-[20px] flex  gap-[10px] items-center"
           >
-            <img src={HomeImage} className="h-[30px]" />
+            <img alt="home" src={HomeImage} className="h-[30px]" />
             <div>Home</div>
           </div>
 
@@ -41,7 +40,11 @@ export default function Dashboard() {
             onClick={navigateToHome}
             className=" cursor-pointer bg-[#4B8299] rounded-[50px]  w-[100%] text-left pl-[20px] pt-[20px] pb-[20px] flex  gap-[10px] items-center"
           >
-            <img src={EEG2IMAGE} className="h-[30px]" />
+            <img
+              alt="i will update this later"
+              src={EEG2IMAGE}
+              className="h-[30px]"
+            />
             <div>Meet The Team</div>
           </div>
           <div
@@ -49,7 +52,7 @@ export default function Dashboard() {
             onClick={navigateToAbout}
             className="  cursor-pointer bg-[#4B8299] rounded-[50px]  w-[100%] text-left pl-[20px] pt-[20px] pb-[20px] flex  gap-[10px] items-center"
           >
-            <img src={AboutImage} />
+            <img alt="i will update this later" src={AboutImage} />
             <div>About Us</div>
           </div>
           <div
@@ -59,7 +62,7 @@ export default function Dashboard() {
             }}
             className=" cursor-pointer bg-[#4B8299] rounded-[50px]  w-[100%] text-left pl-[20px] pt-[20px] pb-[20px] flex  gap-[10px] items-center"
           >
-            <img src={Letter} />
+            <img alt="Letter" src={Letter} />
             <div>Contact Us</div>
           </div>
           <div
@@ -69,7 +72,7 @@ export default function Dashboard() {
             }}
             className=" cursor-pointer bg-[#4B8299] rounded-[50px]  w-[100%] text-left pl-[20px] pt-[20px] pb-[20px] flex  gap-[10px] items-center"
           >
-            <img src={Logout} />
+            <img alt="Logout" src={Logout} />
             <div>Log Out</div>
           </div>
         </div>

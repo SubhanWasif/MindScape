@@ -1,14 +1,9 @@
 import React from "react";
-import subhan from "../assets/subhaaan 1.png";
-import hamza from "../assets/Frame 3.png";
-import maheen from "../assets/maheeen 1.png";
 import ellipse from "../assets/Ellipse 1.png";
 import backgroyund2 from "../assets/background2.png";
 
 import "./LandingPage.css";
 // Importing assets
-import backgroundImage from "../assets/background.png";
-import copyrights from "../assets/Copyright.png";
 import { useNavigate } from "react-router-dom";
 
 export default function HomePage() {
@@ -27,10 +22,10 @@ export default function HomePage() {
   return (
     <div className="bg-black w-[100%] h-[130vh] text-white">
       <div className="absolute right-[10%] top-[10%] rotate-[10deg] ">
-        <img src={ellipse} />
+        <img alt="i will update this later" src={ellipse} />
       </div>
       <div className="absolute  right-[5%] bottom-[-40px]">
-        <img src={backgroyund2} />
+        <img alt="i will update this later" src={backgroyund2} />
       </div>
       <div className="absolute right-[10%] top-[10%] cursor-pointer">
         <div onClick={navigateToAbout} className=" text-xl">

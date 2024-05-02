@@ -10,19 +10,20 @@ import EEG2TEXT from "./components/EEG2Text";
 import EEG2IMAGE from "./components/EEG2Image";
 import { AuthProvider } from "./util/AuthContext";
 import ProtectedRoute from "./util/ProtectedRoute";
+import MeetTheTeam from "./components/MeetTeam";
 
 function App() {
   return (
     <AuthProvider>
       <Router>
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/landingpage" element={<HomePage />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/about" element={<AboutPage />} />
-
           <Route path="/login" element={<Login />} />
+          <Route path="/meettheteam" element={<MeetTheTeam />} />
           <Route
-            path="/dashboard"
+            path="/"
             element={
               <ProtectedRoute>
                 <Dashboard />

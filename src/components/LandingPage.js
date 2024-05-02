@@ -20,43 +20,45 @@ export default function HomePage() {
   };
 
   return (
-    <div className="bg-black w-[100%] h-[130vh] text-white">
-      <div className="absolute right-[10%] top-[10%] rotate-[10deg] ">
-        <img alt="i will update this later" src={ellipse} />
-      </div>
-      <div className="absolute  right-[5%] bottom-[-40px]">
-        <img alt="i will update this later" src={backgroyund2} />
-      </div>
-      <div className="absolute right-[10%] top-[10%] cursor-pointer">
-        <div onClick={navigateToAbout} className=" text-xl">
-          About Us
+    <div className="image-container ">
+      <div className="text-white">
+        <div className=" absolute right-[10%] top-[10%] rotate-[10deg] ">
+          <img alt="i will update this later" src={ellipse} />
         </div>
-      </div>
-      <div className="absolute left-[10%] top-[25%] flex gap-[30px] flex-col justify-center items-center">
-        <div className="GROUPE text-[20px]">WELCOME TO</div>
-        <div className="GROUPE flex flex-col justify-center items-center">
-          <div className="text-[90px]">
-            <div className="text-[#4B8299] inline">m</div>ind
-            <div className="text-[#4B8299] inline">s</div>cape
-          </div>
-          <div className="text-[30px]">
-            <div className="text-[#4B8299] inline">v</div>isualizing{" "}
-            <div className="text-[#4B8299] inline">t</div>houghts
+        <div className="absolute  right-[5%] bottom-[-40px]">
+          <img alt="i will update this later" src={backgroyund2} />
+        </div>
+        <div className="absolute right-[10%] top-[10%] cursor-pointer">
+          <div onClick={navigateToAbout} className=" text-xl">
+            About Us
           </div>
         </div>
-        <div className="flex gap-[40px] justify-center items-center   w-[100%]">
-          <button
-            className="rounded-[50px] p-[20px] w-[40%]  text-xl shadow-[10px_10px_40px_rgb(75,130,153)] cursor-pointer"
-            onClick={navigateToLogin}
-          >
-            Login
-          </button>
-          <button
-            className="rounded-[50px] p-[20px] w-[40%]   text-xl shadow-[10px_10px_40px_rgb(75,130,153)] cursor-pointer"
-            onClick={navigateToSignup}
-          >
-            Signup
-          </button>
+        <div className="absolute left-[10%] top-[25%] flex gap-[30px] flex-col justify-center items-center">
+          <div className="GROUPE text-[20px]">WELCOME TO</div>
+          <div className="GROUPE flex flex-col justify-center items-center">
+            <div className="text-[90px]">
+              <div className="text-[#4B8299] inline">m</div>ind
+              <div className="text-[#4B8299] inline">s</div>cape
+            </div>
+            <div className="text-[30px]">
+              <div className="text-[#4B8299] inline">v</div>isualizing{" "}
+              <div className="text-[#4B8299] inline">t</div>houghts
+            </div>
+          </div>
+          <div className="flex gap-[40px] justify-center items-center   w-[100%]">
+            <button
+              className="rounded-[50px] p-[20px] w-[40%]  text-xl shadow-[10px_10px_40px_rgb(75,130,153)] cursor-pointer"
+              onClick={navigateToLogin}
+            >
+              Login
+            </button>
+            <button
+              className="rounded-[50px] p-[20px] w-[40%]   text-xl shadow-[10px_10px_40px_rgb(75,130,153)] cursor-pointer"
+              onClick={navigateToSignup}
+            >
+              Signup
+            </button>
+          </div>
         </div>
       </div>
     </div>

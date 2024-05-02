@@ -3,10 +3,12 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import HomeImage from "../assets/Home.png";
 import AboutImage from "../assets/About.png";
-import Letter from "../assets/Letter.png";
-import Logout from "../assets/Logout.png";
+import LogoutImage from "../assets/Logout.png";
 import EEG2Text from "../assets/TXT.png";
 import EEG2IMAGE from "../assets/Image File.png";
+import { signOut } from "firebase/auth";
+import auth from "../firebase";
+import Team from "../assets/team.png";
 
 import "./LandingPage.css";
 function Generate() {
@@ -44,12 +46,28 @@ function Generate() {
 
 export default function EEG2TEXT() {
   let navigate = useNavigate();
+  const Logout = () => {
+    signOut(auth) // Call the signOut method with the auth object
+      .then(() => {
+        // Redirect the user to the login page or any other appropriate page
+        navigate("/landingpage"); // Redirect to login page
+      })
+      .catch((error) => {
+        console.error("Error signing out:", error);
+      });
+  };
 
   const navigateToAbout = () => {
     navigate("/about"); // Use the push method to navigate to the desired path
   };
   const navigateToHome = () => {
-    navigate("/dashboard"); // Use the push method to navigate to the desired path
+    navigate("/"); // Use the push method to navigate to the desired path
+  };
+  const navigateToeeg2Image = () => {
+    navigate("/EEGtoImage");
+  };
+  const navigateToMeetTheTeam = () => {
+    navigate("/meettheteam");
   };
   return (
     <div className="flex gradient">
@@ -71,6 +89,19 @@ export default function EEG2TEXT() {
             />
             <div>Home</div>
           </div>
+
+          <div
+            type="button"
+            onClick={navigateToeeg2Image}
+            className=" cursor-pointer bg-[#4B8299] rounded-[50px]  w-[100%] text-left pl-[20px] pt-[20px] pb-[20px] flex  gap-[10px] items-center"
+          >
+            <img
+              alt="i will update this later"
+              src={EEG2IMAGE}
+              className="h-[30px]"
+            />
+            <div>EEGToImage</div>
+          </div>
           <div
             type="button"
             onClick={navigateToHome}
@@ -81,46 +112,34 @@ export default function EEG2TEXT() {
               src={EEG2Text}
               className="h-[30px]"
             />
-            <div>EEG2TEXT</div>
+            <div>EEGToText</div>
           </div>
           <div
+            onClick={navigateToMeetTheTeam}
             type="button"
-            onClick={navigateToHome}
-            className=" cursor-pointer bg-[#4B8299] rounded-[50px]  w-[100%] text-left pl-[20px] pt-[20px] pb-[20px] flex  gap-[10px] items-center"
+            className="  cursor-pointer bg-[#4B8299] rounded-[50px]  w-[100%] text-left pl-[20px] pt-[20px] pb-[20px] flex  gap-[10px] items-center"
           >
             <img
               alt="i will update this later"
-              src={EEG2IMAGE}
-              className="h-[30px]"
+              src={Team}
+              className="mt-[5px] h-[25px] "
             />
-            <div>EEG2IMAGE</div>
+            <div>Meet The Team</div>
           </div>
           <div
             type="button"
             onClick={navigateToAbout}
-            className="  cursor-pointer bg-[#4B8299] rounded-[50px]  w-[100%] text-left pl-[20px] pt-[20px] pb-[20px] flex  gap-[10px] items-center"
+            className=" cursor-pointer bg-[#4B8299] rounded-[50px]  w-[100%] text-left pl-[20px] pt-[20px] pb-[20px] flex  gap-[10px] items-center"
           >
             <img alt="i will update this later" src={AboutImage} />
-            <div>About Us</div>
+            <div>About</div>
           </div>
           <div
             type="button"
-            onClick={() => {
-              console.log("clicked");
-            }}
+            onClick={Logout}
             className=" cursor-pointer bg-[#4B8299] rounded-[50px]  w-[100%] text-left pl-[20px] pt-[20px] pb-[20px] flex  gap-[10px] items-center"
           >
-            <img alt="i will update this later" src={Letter} />
-            <div>Contact Us</div>
-          </div>
-          <div
-            type="button"
-            onClick={() => {
-              console.log("clicked");
-            }}
-            className=" cursor-pointer bg-[#4B8299] rounded-[50px]  w-[100%] text-left pl-[20px] pt-[20px] pb-[20px] flex  gap-[10px] items-center"
-          >
-            <img alt="i will update this later" src={Logout} />
+            <img alt="i will update this later" src={LogoutImage} />
             <div>Log Out</div>
           </div>
         </div>

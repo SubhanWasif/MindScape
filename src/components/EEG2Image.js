@@ -8,11 +8,21 @@ import Team from "../assets/team.png";
 import "./LandingPage.css";
 import { signOut } from "firebase/auth";
 import auth from "../firebase";
+import ClipLoader from "react-spinners/ClipLoader";
+import { useState } from "react";
+import { FileUpload } from "primereact/fileupload";
 
 export default function Dashboard() {
+  const [imageSrc, setImageSrc] = useState("");
   let navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
 
   const fetchData = async () => {
+    const result = document.getElementById("result");
+    result.innerText = "";
+    setLoading(true);
+    setIsVisible(false);
     try {
       const response = await fetch("http://161.35.232.34:3000/predict");
       if (!response.ok) {
@@ -20,10 +30,36 @@ export default function Dashboard() {
       }
       const data = await response.json();
       console.log(data["generated_sequence"]);
-      const result = document.getElementById("result");
-      result.innerText = data["generated_sequence"];
+      const result = document.getElementById("myimage");
+      prompt = data["generated_sequence"];
+      try {
+        const image = await fetch("http://localhost:8080/generate-image", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            prompt: prompt,
+          }),
+        });
+        if (!image.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const blob = await image.blob();
+        const url = URL.createObjectURL(blob);
+        setImageSrc(url);
+        setIsVisible(true);
+        setLoading(false);
+        const result = document.getElementById("result");
+
+        result.innerText = prompt;
+      } catch (error) {
+        console.error("There was a problem with the fetch operation:", error);
+      }
+      setLoading(false);
     } catch (error) {
       console.error("There was a problem with the fetch operation:", error);
+      setLoading(false);
     }
   };
   const Logout = () => {
@@ -123,28 +159,94 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
-      <div className="h-screen w-[85%]  text-white  flex justify-evenly flex-col gap-[50px] p-4 items-center relative">
+      <div className="h-screen w-[85%] text-white  flex justify-evenly flex-col gap-[50px] p-4 items-center ">
         <div className="GROUPE flex justify-center items-center flex-col gap-[70px] ">
           <div className="flex flex-col justify-center items-center">
-            <div className="text-[50px]">EEG2TEXT</div>
+            <div className="text-[50px]">EEG2IMAGE</div>
             <div className="text-[30px]">translating thoughts</div>
           </div>
-          <div className="flex gap-[100px]">
-            <div className=" h-[500px] w-[500px]   shadow-[3px_5px_8px_0px_rgb(255,255,255)] rounded-2xl ">
+          <div className="flex gap-[100px] relative ">
+            <div className=" h-[500px] w-[500px]   shadow-[3px_5px_8px_0px_rgb(255,255,255)] rounded-2xl flex flex-col ">
               {" "}
               <div className="GROUPE text-center text-[30px] pt-[20px]">
                 INPUT
               </div>
+              <div class="scroll-container">
+                <button class="scroll-item">
+                  a person standing on a sidewalk with hail on the ground
+                </button>
+                <button class="scroll-item">a moose in the woods</button>
+                <button class="scroll-item">a mole lying on the ground</button>
+                <button class="scroll-item">a pile of dried plums</button>
+                <button class="scroll-item">
+                  a sharp pointed metal object with a red handle
+                </button>
+                <button class="scroll-item">
+                  a round metal container with a round lid
+                </button>{" "}
+                <button class="scroll-item">a plate of french fries</button>{" "}
+                <button class="scroll-item">
+                  a stack of plastic containers
+                </button>
+                <button class="scroll-item">
+                  a group of pencils next to a notebook
+                </button>
+                <button class="scroll-item">
+                  a wooden brush with black bristles
+                </button>
+                <button class="scroll-item">
+                  a pepper mill next to a plate of salad
+                </button>
+              </div>
+              <div className="self-end m-[20px]">
+                <FileUpload
+                  className="bg-[#1f6c8c] rounded-xl p-[10px] text-white"
+                  mode="basic"
+                  name="demo[]"
+                  url="/api/upload"
+                  accept="image/*"
+                  maxFileSize={1000000}
+                  chooseLabel="Browse"
+                />
+              </div>
             </div>
-            <div className=" h-[500px] w-[500px]   shadow-[3px_5px_8px_0px_rgb(255,255,255)] rounded-2xl ">
+            <div className=" h-[500px] w-[500px]   shadow-[3px_5px_8px_0px_rgb(255,255,255)] rounded-2xl flex flex-col ">
               {" "}
-              <div className="GROUPE text-center text-[30px] pt-[20px] ">
+              <div
+                id="output"
+                className="GROUPE text-center text-[30px] pt-[20px] "
+              >
                 OUTPUT
               </div>
+              {isVisible && (
+                <img
+                  id="myimage"
+                  src={imageSrc}
+                  className=" pr-[10%] pl-[10%] h-[65%] w-[100%]"
+                />
+              )}
+              {loading && (
+                <ClipLoader
+                  color="#ffffff"
+                  size={50}
+                  className="absolute top-[50%] right-[20%]   "
+                />
+              )}
               <div
                 id="result"
-                className=" uppercase text-center mt-[30%]"
+                className="uppercase text-center pr-[10%] pl-[10%] "
               ></div>
+              <div className="self-end m-[20px] bottom-[0%]  absolute">
+                <FileUpload
+                  className="bg-[#1f6c8c] rounded-xl p-[10px] text-white"
+                  mode="basic"
+                  name="demo[]"
+                  url="/api/upload"
+                  accept="image/*"
+                  maxFileSize={1000000}
+                  chooseLabel="Download"
+                />
+              </div>
             </div>
           </div>
           <div>

@@ -29,7 +29,7 @@ export default function AboutPage() {
         <img src={Back} alt="go back" />
       </button>
       <div
-        className="name"
+        className="name ml-[100px]"
         style={{
           display: "flex",
           flexDirection: "column",
@@ -56,13 +56,12 @@ export default function AboutPage() {
         </div>
       </div>
       <div
+        className="ml-[100px]"
         style={{
-          margin: "0",
           backgroundColor: "#0D161A",
           padding: "50px 100px 100px 100px",
           color: "white",
           boxShadow: "3px 5px 4px 0px white",
-
           width: "70%",
           display: "flex",
           justifyContent: "center",

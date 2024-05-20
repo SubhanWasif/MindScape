@@ -134,10 +134,8 @@ export default function Login() {
         </div>
         <div className="pt-[100px] pb-[100px] gradient-box pr-[150px] pl-[150px] rounded-[70px] flex flex-col text-center justify-center items-center gap-[30px] shadow-[3px_5px_8px_0px_rgb(255,255,255)] items-center">
           <div className="title flex flex-col  gap-[4px]">
-            <div className="text-[30px]">Hello world!</div>
-            <div className="font-thin text-[13px] inset">
-              Login with your details
-            </div>
+            <div className="text-[30px]">SIGN UP</div>
+            <div className="font-thin text-[13px] inset">#ComeToTheInfinte</div>
           </div>
           <form onSubmit={handleSubmit} className="flex  ">
             <div className="flex flex-col gap-[20px] justify-center  w-[130%] ">

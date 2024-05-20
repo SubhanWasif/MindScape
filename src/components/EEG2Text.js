@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import { useNavigate } from "react-router-dom";
 import HomeImage from "../assets/Home.png";
@@ -9,43 +9,35 @@ import EEG2IMAGE from "../assets/Image File.png";
 import { signOut } from "firebase/auth";
 import auth from "../firebase";
 import Team from "../assets/team.png";
+import { useState } from "react";
+import { ClipLoader } from "react-spinners";
+import { FileUpload } from "primereact/fileupload";
 
 import "./LandingPage.css";
-function Generate() {
-  console.log("clicked");
-
-  // Define the URL of the API you want to call
-
-  useEffect(() => {
-    // Use the fetch API to make a GET request to the URL
-    fetch("http://localhost:5000/predict")
-      .then((response) => {
-        // Check if the request was successful
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        // Parse the JSON response body
-        const data = response.json();
-        // console.log(data);
-        return data;
-      })
-      .then((data) => {
-        // Process the data
-        const reasult = document.getElementById("result");
-        data = data["generated_sequence"];
-        console.log(data);
-
-        reasult.innerHTML = data;
-      })
-      .catch((error) => {
-        // Handle any errors
-        console.error("There was a problem with the fetch operation:", error);
-      });
-  }, []);
-}
 
 export default function EEG2TEXT() {
   let navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+
+  const fetchData = async () => {
+    const result = document.getElementById("result");
+    result.innerText = "";
+    setLoading(true);
+    try {
+      const response = await fetch("http://161.35.232.34:3000/predict");
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      const data = await response.json();
+      console.log(data["generated_sequence"]);
+      const result = document.getElementById("result");
+      result.innerText = data["generated_sequence"];
+      setLoading(false);
+    } catch (error) {
+      console.error("There was a problem with the fetch operation:", error);
+      setLoading(false);
+    }
+  };
   const Logout = () => {
     signOut(auth) // Call the signOut method with the auth object
       .then(() => {
@@ -151,18 +143,82 @@ export default function EEG2TEXT() {
             <div className="text-[30px]">translating thoughts</div>
           </div>
           <div className="flex gap-[100px]">
-            <div className=" h-[500px] w-[500px]   shadow-[3px_5px_8px_0px_rgb(255,255,255)] rounded-2xl ">
+            <div className=" h-[500px] w-[500px]   shadow-[3px_5px_8px_0px_rgb(255,255,255)] rounded-2xl flex flex-col ">
               {" "}
-              <div className="text-center text-[30px] pt-[20px]">INPUT</div>
+              <div className="GROUPE text-center text-[30px] pt-[20px]">
+                INPUT
+              </div>
+              <div class="scroll-container">
+                <button class="scroll-item">
+                  a person standing on a sidewalk with hail on the ground
+                </button>
+                <button class="scroll-item">a moose in the woods</button>
+                <button class="scroll-item">a mole lying on the ground</button>
+                <button class="scroll-item">a pile of dried plums</button>
+                <button class="scroll-item">
+                  a sharp pointed metal object with a red handle
+                </button>
+                <button class="scroll-item">
+                  a round metal container with a round lid
+                </button>{" "}
+                <button class="scroll-item">a plate of french fries</button>{" "}
+                <button class="scroll-item">
+                  a stack of plastic containers
+                </button>
+                <button class="scroll-item">
+                  a group of pencils next to a notebook
+                </button>
+                <button class="scroll-item">
+                  a wooden brush with black bristles
+                </button>
+                <button class="scroll-item">
+                  a pepper mill next to a plate of salad
+                </button>
+              </div>
+              <div className="self-end m-[20px]">
+                <FileUpload
+                  className="bg-[#1f6c8c] rounded-xl p-[10px] text-white"
+                  mode="basic"
+                  name="demo[]"
+                  url="/api/upload"
+                  accept="image/*"
+                  maxFileSize={1000000}
+                  chooseLabel="Browse"
+                />
+              </div>
             </div>
-            <div className=" h-[500px] w-[500px]   shadow-[3px_5px_8px_0px_rgb(255,255,255)] rounded-2xl ">
+            <div className=" h-[500px] w-[500px]   shadow-[3px_5px_8px_0px_rgb(255,255,255)] rounded-2xl flex flex-col">
               {" "}
-              <div className="text-center text-[30px] pt-[20px] ">OUTPUT</div>
+              <div className="GROUPE text-center text-[30px] pt-[20px] ">
+                OUTPUT
+              </div>
+              {loading && (
+                <ClipLoader
+                  color="#ffffff"
+                  size={50}
+                  className="absolute top-[50%] right-[30%]   "
+                />
+              )}
+              <div
+                id="result"
+                className=" uppercase text-center mt-[30%] p-4 text-[20px]"
+              ></div>
+              <div className="self-end m-[20px] bottom-[21%] absolute">
+                <FileUpload
+                  className="bg-[#1f6c8c] rounded-xl p-[10px] text-white"
+                  mode="basic"
+                  name="demo[]"
+                  url="/api/upload"
+                  accept="image/*"
+                  maxFileSize={1000000}
+                  chooseLabel="Download"
+                />
+              </div>
             </div>
           </div>
           <div>
             <button
-              onClick={Generate}
+              onClick={fetchData}
               className=" bg-[#4B8299]  text-white pt-2 pb-2 pr-4 pl-4 text-[20px] rounded-[50px] mt-[20px] "
             >
               Generate

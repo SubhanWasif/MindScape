@@ -9,7 +9,7 @@ export default function MeetTheTeam() {
   let navigate = useNavigate();
   return (
     <div
-      className="gradient"
+      className="gradient "
       style={{
         margin: "0",
         height: "100vh",
@@ -29,7 +29,7 @@ export default function MeetTheTeam() {
         <img src={Back} alt="go back" />
       </button>
       <div
-        className="name"
+        className="name ml-[100px]"
         style={{
           display: "flex",
           flexDirection: "column",
@@ -56,8 +56,8 @@ export default function MeetTheTeam() {
         </div>
       </div>
       <div
+        className="ml-[100px]"
         style={{
-          margin: "0",
           backgroundColor: "#0D161A",
           padding: "50px 100px 100px 100px",
           color: "white",

@@ -42,3 +42,34 @@ body::-webkit-scrollbar {
 .gradient-box {
   background: linear-gradient(140deg, rgb(0, 0, 0) 0%, rgb(75, 130, 153) 100%);
 }
+
+.scroll-container {
+  margin-left: 30px;
+  width: 90%;
+  max-height: 70%; /* Adjust based on the desired height */
+  overflow-y: auto; /* Enables vertical scrolling */
+  font-family: "Courier New", Courier, monospace;
+
+  /* Hide scrollbar for IE, Edge, and Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
+  /* Hide scrollbar for Chrome, Safari, and Opera */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.scroll-item {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  text-align: left;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.scroll-item:hover {
+  background-color: #1f6c8c; /* Hover effect */
+}

@@ -24,7 +24,7 @@ export default function Dashboard() {
     setLoading(true);
     setIsVisible(false);
     try {
-      const response = await fetch("http://161.35.232.34:3000/predict");
+      const response = await fetch("https://161.35.232.34:3000/predict");
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }

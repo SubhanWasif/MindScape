@@ -185,12 +185,12 @@ export default function Login() {
               </button>
             </div>
           </form>
-          <button
+          {/* <button
             onClick={SignUpWithGoogle}
             className="rounded-[50px] w-[40%] p-[20px] bg-black cursor-pointer self-center"
           >
             <div>Sign Up with Google</div>
-          </button>
+          </button> */}
         </div>
       </div>
     </div>

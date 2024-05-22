@@ -155,12 +155,12 @@ export default function Login() {
               </button>
             </div>
           </form>
-          <button
+          {/* <button
             onClick={SignInwithGoogle}
             className="w-[30px] absolute right-[20%] bottom-[21%] cursor-pointer "
           >
             <img src={GOOGLE} />
-          </button>
+          </button> */}
         </div>
       </div>
     </div>

@@ -20,7 +20,7 @@ export default function Dashboard() {
 
   const fetchData = async () => {
     const result = document.getElementById("result");
-    result.innerText = "";
+    result.src = "";
     setLoading(true);
     setIsVisible(false);
     try {
@@ -33,15 +33,18 @@ export default function Dashboard() {
       const result = document.getElementById("myimage");
       prompt = data["generated_sequence"];
       try {
-        const image = await fetch("http://localhost:8080/generate-image", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            prompt: prompt,
-          }),
-        });
+        const image = await fetch(
+          "https://imageapi-u8xh.onrender.com/generate-image",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              prompt: prompt,
+            }),
+          }
+        );
         if (!image.ok) {
           throw new Error("Network response was not ok");
         }

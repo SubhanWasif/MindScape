@@ -77,7 +77,7 @@ export default function MeetTheTeam() {
           </div>
           <div className="flex justify-center flex-col items-center gap-[30px]">
             <img className="rounded-3xl" src={hamza} alt="subhan" />
-            <div className="text-2xl">Hamza Ahmed</div>
+            <div className="text-2xl">Hamza Ahmad</div>
           </div>
           <div className="flex justify-center flex-col items-center gap-[30px]">
             <img className="rounded-3xl" src={maheen} alt="subhan" />

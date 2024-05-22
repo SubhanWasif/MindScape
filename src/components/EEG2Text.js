@@ -12,6 +12,7 @@ import Team from "../assets/team.png";
 import { useState } from "react";
 import { ClipLoader } from "react-spinners";
 import { FileUpload } from "primereact/fileupload";
+import axios from "axios";
 
 import "./LandingPage.css";
 
@@ -24,12 +25,11 @@ export default function EEG2TEXT() {
     result.innerText = "";
     setLoading(true);
     try {
-      const response = await fetch("https://161.35.232.34:3000/predict");
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      const data = await response.json();
-      console.log(data["generated_sequence"]);
+      const response = await axios.get("http://161.35.232.34:3000/predict");
+      console.log(response);
+
+      const data = response.data;
+      console.log(data);
       const result = document.getElementById("result");
       result.innerText = data["generated_sequence"];
       setLoading(false);

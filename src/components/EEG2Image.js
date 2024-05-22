@@ -11,6 +11,7 @@ import auth from "../firebase";
 import ClipLoader from "react-spinners/ClipLoader";
 import { useState } from "react";
 import { FileUpload } from "primereact/fileupload";
+import axios from "axios";
 
 export default function Dashboard() {
   const [imageSrc, setImageSrc] = useState("");
@@ -24,14 +25,10 @@ export default function Dashboard() {
     setLoading(true);
     setIsVisible(false);
     try {
-      const response = await fetch("https://161.35.232.34:3000/predict");
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      const data = await response.json();
-      console.log(data["generated_sequence"]);
-      const result = document.getElementById("myimage");
-      prompt = data["generated_sequence"];
+      const response = await axios.get("http://161.35.232.34:3000/predict");
+      const data = response.data;
+      const resultElement = document.getElementById("myimage");
+      const prompt = data["generated_sequence"];
       try {
         const image = await fetch(
           "https://imageapi-u8xh.onrender.com/generate-image",
@@ -54,7 +51,6 @@ export default function Dashboard() {
         setIsVisible(true);
         setLoading(false);
         const result = document.getElementById("result");
-
         result.innerText = prompt;
       } catch (error) {
         console.error("There was a problem with the fetch operation:", error);

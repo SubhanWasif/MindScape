@@ -20,7 +20,7 @@ export default function Dashboard() {
 
   const fetchData = async () => {
     const result = document.getElementById("result");
-    result.src = "";
+    result.innerText = "";
     setLoading(true);
     setIsVisible(false);
     try {

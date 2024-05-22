@@ -24,7 +24,7 @@ export default function EEG2TEXT() {
     result.innerText = "";
     setLoading(true);
     try {
-      const response = await fetch("http://161.35.232.34:3000/predict");
+      const response = await fetch("https://161.35.232.34:3000/predict");
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
@@ -34,6 +34,7 @@ export default function EEG2TEXT() {
       result.innerText = data["generated_sequence"];
       setLoading(false);
     } catch (error) {
+      console.log(error);
       console.error("There was a problem with the fetch operation:", error);
       setLoading(false);
     }

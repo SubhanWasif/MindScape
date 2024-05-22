@@ -25,10 +25,12 @@ export default function Dashboard() {
     setLoading(true);
     setIsVisible(false);
     try {
-      const response = await axios.get("http://161.35.232.34:3000/predict");
+      const response = await axios.get(
+        "https://nodebackendformindscape.onrender.com/api/data"
+      );
       const data = response.data;
-      const resultElement = document.getElementById("myimage");
       const prompt = data["generated_sequence"];
+      console.log(prompt);
       try {
         const image = await fetch(
           "https://imageapi-u8xh.onrender.com/generate-image",

@@ -25,7 +25,9 @@ export default function EEG2TEXT() {
     result.innerText = "";
     setLoading(true);
     try {
-      const response = await axios.get("http://161.35.232.34:3000/predict");
+      const response = await axios.get(
+        "https://nodebackendformindscape.onrender.com/api/data"
+      );
       console.log(response);
 
       const data = response.data;

@@ -39,7 +39,10 @@ export default function EEG2TEXT() {
   };
 
   const fetchData = async () => {
-    console.log(selectedItem);
+    if (!selectedItem) {
+      alert("Please select an item first");
+      return;
+    }
     const result = document.getElementById("result");
     result.innerText = "";
     setLoading(true);

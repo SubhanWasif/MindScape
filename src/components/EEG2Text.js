@@ -20,6 +20,7 @@ export default function EEG2TEXT() {
   let navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [selectedItem, setSelectedItem] = useState("");
+  const [generatedText, setGeneratedText] = useState("");
 
   const items = [
     "a person standing on a sidewalk with hail on the ground",
@@ -36,6 +37,33 @@ export default function EEG2TEXT() {
   ];
   const handleClick = (item) => {
     setSelectedItem(item);
+  };
+
+  const downloadfile = async () => {
+    if (!selectedItem) {
+      alert("Please select an item first");
+      return;
+    }
+    let data;
+    if (!generatedText) {
+      data = {
+        "Selected Prompt": selectedItem,
+      };
+    } else {
+      data = {
+        "Selected Prompt": selectedItem,
+        "Generated Text": generatedText,
+      };
+    }
+
+    const dataString = JSON.stringify(data, null, 2);
+    const blob = new Blob([dataString], { type: "text/plain" });
+    const link = document.createElement("a");
+    link.download = "download.txt";
+    link.href = window.URL.createObjectURL(blob);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   const fetchData = async () => {
@@ -57,6 +85,7 @@ export default function EEG2TEXT() {
 
       const data = response.data;
       console.log(data);
+      setGeneratedText(data["generated_sequence"]);
       const result = document.getElementById("result");
       result.innerText = data["generated_sequence"];
       setLoading(false);
@@ -217,16 +246,12 @@ export default function EEG2TEXT() {
                 id="result"
                 className=" uppercase text-center mt-[30%] p-4 text-[20px]"
               ></div>
-              <div className="self-end m-[20px] bottom-[21%] absolute">
-                <FileUpload
-                  className="bg-[#1f6c8c] rounded-xl p-[10px] text-white"
-                  mode="basic"
-                  name="demo[]"
-                  url="/api/upload"
-                  accept="image/*"
-                  maxFileSize={1000000}
-                  chooseLabel="Download"
-                />
+              <div
+                onClick={downloadfile}
+                type="button"
+                className="self-end m-[20px] bottom-[21%] absolute bg-[#1f6c8c] rounded-xl p-[10px] text-white cursor-pointer"
+              >
+                Download
               </div>
             </div>
           </div>

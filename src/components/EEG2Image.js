@@ -19,6 +19,7 @@ export default function Dashboard() {
   const [loading, setLoading] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [selectedItem, setSelectedItem] = useState("");
+  const [generatedText, setGeneratedText] = useState("");
 
   const items = [
     "a person standing on a sidewalk with hail on the ground",
@@ -35,6 +36,32 @@ export default function Dashboard() {
   ];
   const handleClick = (item) => {
     setSelectedItem(item);
+  };
+  const downloadfile = async () => {
+    if (!selectedItem) {
+      alert("Please select an item first");
+      return;
+    }
+    let data;
+    if (!generatedText) {
+      data = {
+        "Selected Prompt": selectedItem,
+      };
+    } else {
+      data = {
+        "Selected Prompt": selectedItem,
+        "Generated Text": generatedText,
+      };
+    }
+
+    const dataString = JSON.stringify(data, null, 2);
+    const blob = new Blob([dataString], { type: "text/plain" });
+    const link = document.createElement("a");
+    link.download = "download.txt";
+    link.href = window.URL.createObjectURL(blob);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   const fetchData = async () => {
@@ -56,7 +83,7 @@ export default function Dashboard() {
       );
       const data = response.data;
       console.log(data);
-
+      setGeneratedText(data["generated_sequence"]);
       const prompt = data["generated_sequence"];
       console.log(prompt);
       try {
@@ -237,6 +264,7 @@ export default function Dashboard() {
                 <img
                   id="myimage"
                   src={imageSrc}
+                  alt="not found"
                   className=" pr-[10%] pl-[10%] h-[65%] w-[100%]"
                 />
               )}
@@ -251,16 +279,12 @@ export default function Dashboard() {
                 id="result"
                 className="uppercase text-center pr-[10%] pl-[10%] "
               ></div>
-              <div className="self-end m-[20px] bottom-[0%]  absolute">
-                <FileUpload
-                  className="bg-[#1f6c8c] rounded-xl p-[10px] text-white"
-                  mode="basic"
-                  name="demo[]"
-                  url="/api/upload"
-                  accept="image/*"
-                  maxFileSize={1000000}
-                  chooseLabel="Download"
-                />
+              <div
+                type="button"
+                onClick={downloadfile}
+                className="self-end m-[20px] bottom-[0%] absolute bg-[#1f6c8c] rounded-xl p-[10px] text-white cursor-pointer"
+              >
+                Download
               </div>
             </div>
           </div>

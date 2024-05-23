@@ -19,14 +19,36 @@ import "./LandingPage.css";
 export default function EEG2TEXT() {
   let navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+  const [selectedItem, setSelectedItem] = useState("");
+
+  const items = [
+    "a person standing on a sidewalk with hail on the ground",
+    "a moose in the woods",
+    "a mole lying on the ground",
+    "a pile of dried plums",
+    "a sharp pointed metal object with a red handle",
+    "a round metal container with a round lid",
+    "a plate of french fries",
+    "a stack of plastic containers",
+    "a group of pencils next to a notebook",
+    "a wooden brush with black bristles",
+    "a pepper mill next to a plate of salad",
+  ];
+  const handleClick = (item) => {
+    setSelectedItem(item);
+  };
 
   const fetchData = async () => {
+    console.log(selectedItem);
     const result = document.getElementById("result");
     result.innerText = "";
     setLoading(true);
     try {
-      const response = await axios.get(
-        "https://nodebackendformindscape.onrender.com/api/data"
+      const response = await axios.post(
+        "https://nodebackendformindscape.onrender.com/api/data",
+        {
+          prompt: selectedItem,
+        }
       );
       console.log(response);
 
@@ -151,32 +173,18 @@ export default function EEG2TEXT() {
               <div className="GROUPE text-center text-[30px] pt-[20px]">
                 INPUT
               </div>
-              <div class="scroll-container">
-                <button class="scroll-item">
-                  a person standing on a sidewalk with hail on the ground
-                </button>
-                <button class="scroll-item">a moose in the woods</button>
-                <button class="scroll-item">a mole lying on the ground</button>
-                <button class="scroll-item">a pile of dried plums</button>
-                <button class="scroll-item">
-                  a sharp pointed metal object with a red handle
-                </button>
-                <button class="scroll-item">
-                  a round metal container with a round lid
-                </button>{" "}
-                <button class="scroll-item">a plate of french fries</button>{" "}
-                <button class="scroll-item">
-                  a stack of plastic containers
-                </button>
-                <button class="scroll-item">
-                  a group of pencils next to a notebook
-                </button>
-                <button class="scroll-item">
-                  a wooden brush with black bristles
-                </button>
-                <button class="scroll-item">
-                  a pepper mill next to a plate of salad
-                </button>
+              <div className="scroll-container">
+                {items.map((item, index) => (
+                  <button
+                    key={index}
+                    className={`scroll-item ${
+                      selectedItem === item ? "selected" : ""
+                    }`}
+                    onClick={() => handleClick(item)}
+                  >
+                    {item}
+                  </button>
+                ))}
               </div>
               <div className="self-end m-[20px]">
                 <FileUpload

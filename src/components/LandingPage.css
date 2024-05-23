@@ -73,3 +73,8 @@ body::-webkit-scrollbar {
 .scroll-item:hover {
   background-color: #1f6c8c; /* Hover effect */
 }
+
+.scroll-item.selected {
+  background-color: #1f6c8c; /* Selected effect */
+  color: #fff; /* Optional: Change text color when selected */
+}

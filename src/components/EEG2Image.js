@@ -252,7 +252,7 @@ export default function Dashboard() {
                 />
               </div>
             </div>
-            <div className=" h-[500px] w-[500px]   shadow-[3px_5px_8px_0px_rgb(255,255,255)] rounded-2xl flex flex-col ">
+            <div className=" h-[500px] w-[500px]   shadow-[3px_5px_8px_0px_rgb(255,255,255)] rounded-2xl flex flex-col  items-center">
               {" "}
               <div
                 id="output"
@@ -265,7 +265,7 @@ export default function Dashboard() {
                   id="myimage"
                   src={imageSrc}
                   alt="not found"
-                  className=" pr-[10%] pl-[10%] h-[65%] w-[100%]"
+                  className=" pr-[10%] pl-[10%]  h-[60%] w-[80%]"
                 />
               )}
               {loading && (

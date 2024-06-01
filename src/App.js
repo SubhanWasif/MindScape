@@ -12,6 +12,7 @@ import { AuthProvider } from "./util/AuthContext";
 import ProtectedRoute from "./util/ProtectedRoute";
 import MeetTheTeam from "./components/MeetTeam";
 import ForgotPassword from "./components/ForgotPassword";
+import Contact from "./components/Contact";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/meettheteam" element={<MeetTheTeam />} />
           <Route path="/forgotpassword" element={<ForgotPassword />} />
+          <Route path="/contact" element={<Contact />} />
           <Route
             path="/"
             element={

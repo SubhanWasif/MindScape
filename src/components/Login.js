@@ -40,6 +40,9 @@ export default function Login() {
   const navigateToSignup = () => {
     navigate("/signup"); // Use the push method to navigate to the desired path
   };
+  const navigateToContact = () => {
+    navigate("/contact");
+  };
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -93,9 +96,7 @@ export default function Login() {
           </div>
           <div
             type="button"
-            onClick={() => {
-              console.log("clicked");
-            }}
+            onClick={navigateToContact}
             className=" cursor-pointer bg-[#4B8299] rounded-[50px]  w-[100%] text-left pl-[20px] pt-[20px] pb-[20px] flex  gap-[10px] items-center"
           >
             <img alt="i will update this later" src={Letter} />

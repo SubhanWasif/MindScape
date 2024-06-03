@@ -15,6 +15,7 @@ import { FileUpload } from "primereact/fileupload";
 import axios from "axios";
 
 import "./LandingPage.css";
+import { load } from "webfontloader";
 
 export default function EEG2TEXT() {
   let navigate = useNavigate();
@@ -71,8 +72,6 @@ export default function EEG2TEXT() {
       alert("Please select an item first");
       return;
     }
-    const result = document.getElementById("result");
-    result.innerText = "";
     setLoading(true);
     try {
       const response = await axios.post(
@@ -86,8 +85,6 @@ export default function EEG2TEXT() {
       const data = response.data;
       console.log(data);
       setGeneratedText(data["generated_sequence"]);
-      const result = document.getElementById("result");
-      result.innerText = data["generated_sequence"];
       setLoading(false);
     } catch (error) {
       console.log(error);
@@ -239,13 +236,19 @@ export default function EEG2TEXT() {
                 <ClipLoader
                   color="#ffffff"
                   size={50}
-                  className="absolute top-[50%] right-[30%]   "
+                  className="absolute top-[50%] right-[30%]"
                 />
               )}
-              <div
-                id="result"
-                className=" uppercase text-center mt-[30%] p-4 text-[20px]"
-              ></div>
+              {loading && (
+                <div className="absolute right-[25%] top-[57%]">
+                  Processing EEG...
+                </div>
+              )}
+              {!loading && generatedText && (
+                <div className="uppercase text-center mt-[30%] p-4 text-[20px]">
+                  {generatedText}
+                </div>
+              )}
               <div
                 onClick={downloadfile}
                 type="button"

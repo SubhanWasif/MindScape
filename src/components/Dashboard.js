@@ -8,6 +8,7 @@ import LogoutImage from "../assets/Logout.png";
 import EEG2IMAGE from "../assets/Image File.png";
 import Team from "../assets/team.png";
 import { signOut } from "firebase/auth";
+import backgroundVideo from "../assets/backgroundvideo2.mp4";
 
 import "./LandingPage.css";
 

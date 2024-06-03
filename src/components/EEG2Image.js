@@ -272,8 +272,13 @@ export default function Dashboard() {
                 <ClipLoader
                   color="#ffffff"
                   size={50}
-                  className="absolute top-[50%] right-[20%]   "
+                  className="absolute top-[43%] right-[20%]   "
                 />
+              )}
+              {loading && (
+                <div className="absolute right-[13%] top-[58%]">
+                  Processing EEG...
+                </div>
               )}
               <div
                 id="result"

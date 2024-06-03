@@ -1,6 +1,7 @@
 import React from "react";
 import ellipse from "../assets/Ellipse 1.png";
 import backgroyund2 from "../assets/background2.png";
+import backgroundVideo from "../assets/backgroundvideo2.mp4";
 
 import "./LandingPage.css";
 // Importing assets
@@ -21,13 +22,10 @@ export default function HomePage() {
 
   return (
     <div className="image-container ">
+      <div class="flipHorizontal">
+        <video src={backgroundVideo} preload="auto" autoPlay loop muted></video>
+      </div>
       <div className="text-white">
-        <div className=" absolute right-[10%] top-[10%] rotate-[10deg] ">
-          <img alt="i will update this later" src={ellipse} />
-        </div>
-        <div className="absolute  right-[5%] bottom-[-40px]">
-          <img alt="i will update this later" src={backgroyund2} />
-        </div>
         <div className="absolute right-[10%] top-[10%] cursor-pointer">
           <div onClick={navigateToAbout} className=" text-xl">
             About Us
@@ -47,13 +45,13 @@ export default function HomePage() {
           </div>
           <div className="flex gap-[40px] justify-center items-center   w-[100%]">
             <button
-              className="rounded-[50px] p-[20px] w-[40%]  text-xl shadow-[10px_10px_40px_rgb(75,130,153)] cursor-pointer"
+              className="rounded-[50px] p-[20px] w-[40%] bg-black text-xl shadow-[10px_10px_40px_rgb(75,130,153)] cursor-pointer"
               onClick={navigateToLogin}
             >
               Login
             </button>
             <button
-              className="rounded-[50px] p-[20px] w-[40%]   text-xl shadow-[10px_10px_40px_rgb(75,130,153)] cursor-pointer"
+              className="rounded-[50px] p-[20px] w-[40%]  bg-black text-xl shadow-[10px_10px_40px_rgb(75,130,153)] cursor-pointer"
               onClick={navigateToSignup}
             >
               Signup

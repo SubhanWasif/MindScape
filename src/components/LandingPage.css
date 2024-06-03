@@ -78,3 +78,7 @@ body::-webkit-scrollbar {
   background-color: #1f6c8c; /* Selected effect */
   color: #fff; /* Optional: Change text color when selected */
 }
+
+.flipHorizontal {
+  transform: scaleX(-1);
+}
